@@ -1,0 +1,95 @@
+<!--
+Copyright (c) 2026 Czuz
+Source: https://github.com/Czuz/zgadnij-liczbe
+
+This file is part of a project licensed under the MIT License.
+See the LICENSE file in the project root for full license text.
+
+This page includes third-party code:
+
+- coi-serviceworker
+  Copyright (c) 2021 Guido Zuidhof
+  Licensed under the MIT License.
+
+- PyScript
+  Licensed under the Apache License, Version 2.0.
+  You may obtain a copy of the License at:
+  http://www.apache.org/licenses/LICENSE-2.0
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="pl" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Zgadnij Liczbę</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="https://pyscript.net/releases/2026.3.1/core.css">
+    <script type="module" src="https://pyscript.net/releases/2026.3.1/core.js"></script>
+    <script src="coi-serviceworker.min.js"></script>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      html, body {
+        height: 100vh;
+        margin: 0;
+        overflow: hidden;
+      }
+      body {
+        background-color: #000;
+        color: #00ff00;
+        font-family: 'Courier New', monospace;
+        line-height: 1.3;
+        border: 3px solid #00ff00;
+        padding: 0.5rem;
+        box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+        display: flex;
+        flex-direction: column;
+      }
+      h1 {
+        text-shadow: 0 0 10px #00ff00;
+        border-bottom: 2px solid #00ff00;
+        padding-bottom: 0.3rem;
+        margin: 0 0 0.3rem 0;
+        font-size: 1.2rem;
+      }
+      p {
+        margin: 0.3rem 0;
+        font-size: 0.9rem;
+      }
+      py-terminal {
+        flex: 1;
+        overflow: hidden;
+        min-height: 90px;
+      }
+      button {
+        background-color: #003300;
+        color: #00ff00;
+        border: 2px solid #00ff00;
+        padding: 0.4rem 0.8rem;
+        font-family: 'Courier New', monospace;
+        font-size: 0.85rem;
+        cursor: pointer;
+        margin-top: 0.3rem;
+        transition: all 0.2s;
+        align-self: flex-start;
+      }
+      button:hover {
+        background-color: #00ff00;
+        color: #000;
+        box-shadow: 0 0 10px #00ff00;
+      }
+      button:active {
+        transform: scale(0.95);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>► ZGADNIJ LICZBĘ ◄</h1>
+    <p>Klasyczna gra w odgadywanie liczby z trybem dla wielu graczy. Miłej zabawy!</p>
+    <py-config>
+    terminal = true
+    </py-config>
+    <script type="py" src="./guess-game.py" terminal worker></script>
+    <button onclick="location.reload()">ROZPOCZNIJ NA NOWO</button>
+  </body>
+</html>
