@@ -56,6 +56,23 @@ This page includes third-party code:
         margin: 0.3rem 0;
         font-size: 0.9rem;
       }
+      a {
+        color: #00ff00;
+      }
+      a:hover {
+        background-color: #00ff00;
+        color: #000;
+        box-shadow: 0 0 10px #00ff00;
+      }
+      .bottom-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .counter {
+        height: 20px;
+      }
       py-terminal {
         flex: 1;
         overflow: hidden;
@@ -90,6 +107,10 @@ This page includes third-party code:
     terminal = true
     </py-config>
     <script type="py" src="./guess-game.py" terminal worker></script>
-    <button onclick="location.reload()">ROZPOCZNIJ NA NOWO</button>
+    <div class="bottom-row">
+      <button onclick="location.reload()">ROZPOCZNIJ NA NOWO</button>
+      <img class="counter" src="https://visitor-badge.laobi.icu/badge?page_id=czuz.zgadnij-liczbe.page&left_color=%23003300&right_color=%23000000&format=true&left_text=Liczba%20gości" alt="Liczba gości"/>
+      <p>Copyright &copy; 2026 <a href="https://github.com/Czuz/zgadnij-liczbe/" target="_blank">Czuz</a></p>
+    </div>
   </body>
 </html>
